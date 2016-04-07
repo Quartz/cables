@@ -1,0 +1,117 @@
+/*
+ * Config
+ */
+border-radius()
+  -webkit-border-radius: arguments
+  -moz-border-radius: arguments
+  border-radius: arguments
+
+/*
+ * Thing styles
+ */
+ ul#legend
+   padding: 0
+   margin: 0
+   list-style-type: none
+
+   li
+     display: inline-block
+     margin: 0 18px 0 0
+     padding: 0
+     line-height: 15px
+
+     b
+       display: inline-block
+       width: 15px
+       height: 15px
+       margin-right: 6px
+       float: left
+       border: 1px solid $qz-map-graticule
+       border-radius(8px)
+
+     div
+       whitespace: nowrap
+       fill: $qz-gray-2
+       font-size: 12px
+       font-family: 'AdelleSans-Regular', Helvetica, Arial, sans-serif
+       float: left;
+
+     &.construction b
+       background-color: alpha($qz-blue-1, 0.7)
+
+     &.operational b
+       background-color: alpha($qz-purp-1, 0.7)
+
+.item-body h2
+  // font-size 1.2em
+  // line-height 1.2em
+  // font-style bold
+  margin 15px 0px 10px
+
+svg
+  background-color: $qz-map-water
+
+.borders path
+  stroke: $qz-map-land-stroke
+  stroke-width: 1px
+  fill: $qz-map-land-fill
+
+.cables
+  path
+    stroke: $qz-purp-1
+    stroke-width: 2px
+    stroke-opacity: 0.7
+    fill: none
+    opacity: 0.7
+
+    &.future
+        stroke: $qz-blue-1
+
+text.year
+  fill: $qz-gray-2
+  font-family: 'AdelleSans-Regular', Helvetica, Arial, sans-serif
+  -webkit-font-smoothing: antialiased
+  font-size: 500%
+  opacity: 0.75
+
+.controls
+  polygon
+    fill: $qz-gray-3
+
+  text
+    fill: $qz-gray-3
+    font-family: 'AdelleSans-Regular', Helvetica, Arial, sans-serif
+    -webkit-font-smoothing: antialiased
+    font-size: 300%
+
+rect.play
+  fill: rgba(200,200,200,0.3)
+  stroke-width: 2px
+  stroke: $qz-gray-2
+
+  &:hover
+    cursor: pointer
+
+p#footnote
+  font-size: 12px
+  line-height: 14px
+  font-family: 'AdelleSans-Regular', Helvetica, Arial, sans-serif
+  color: #888
+  margin: 0 5px
+
+/*
+ * Media queries
+ */
+@media screen and (max-width: 600px)
+  .item-body h2
+    font-size 14px
+
+  .borders path
+    stroke-width: 0.5px
+
+  rect.play {
+    stroke-width: 1px;
+  }
+
+  #footer
+    font-size: 60%
