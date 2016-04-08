@@ -82,10 +82,15 @@ function render() {
     }
 
     if (playbackYear == 2015) {
-        cables = cablesData['features'];
+        cables = cablesData['cables']['features'];
+        landings = cablesData['landings']['features'];
     } else {
-        var cables = _.filter(cablesData['features'], function(c) {
+        var cables = _.filter(cablesData['cables']['features'], function(c) {
             return c['properties']['rfs_year'] <= playbackYear;
+        });
+
+        var landings = _.filter(cablesData['landings']['features'], function(c) {
+            return c['properties']['year'] <= playbackYear;
         });
     }
 
@@ -93,7 +98,8 @@ function render() {
         container: '#map',
         width: width,
         borders: bordersData,
-        cables: cables
+        cables: cables,
+        landings: landings
     });
 
     // Resize
@@ -177,12 +183,30 @@ function renderMap(config) {
         .data(config['cables'])
         .enter().append('path')
         .attr('id', function(d) {
-            console.log(d);
             return d['id'];
         })
         .attr('d', geoPath)
         .attr('class', function(d) {
             if (d['properties']['rfs_year'] > 2015) {
+                return 'future';
+            }
+        })
+
+    var landings = chartElement.append('g')
+        .attr('class', 'landings');
+
+    landings.selectAll('circle')
+        .data(config['landings'])
+        .enter().append('circle')
+        .attr('r', 2.5)
+        .attr('cx', function(d) {
+            return projection(d['geometry']['coordinates'])[0];
+        })
+        .attr('cy', function(d) {
+        return projection(d['geometry']['coordinates'])[1];
+        })
+        .attr('class', function(d) {
+            if (d['properties']['year'] > 2015) {
                 return 'future';
             }
         })
