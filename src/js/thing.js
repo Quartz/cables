@@ -13,7 +13,7 @@ var features = require('./detectFeatures')();
 var DEFAULT_WIDTH = 940;
 var MOBILE_THRESHOLD = 600;
 var PLAYBACK_SPEED = 400;
-var FIRST_YEAR = 1995;
+var FIRST_YEAR = 1990;
 var LAST_YEAR = 2015;
 
 var bordersData = null;
