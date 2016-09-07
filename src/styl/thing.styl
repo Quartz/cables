@@ -6,10 +6,34 @@ border-radius()
   -moz-border-radius: arguments
   border-radius: arguments
 
+$moti-font = $qz-sans
+$moti-font-bold = $qz-sans-bold
+
+$moti-black = #000000           // Primary black
+$moti-charcoal = #4c4c4c
+$moti-grey = #a1a1a1
+$moti-silver = #bebebe
+$moti-light-grey = #e2e2e2      // Background
+$moti-white = #ffffff           // For pop
+$moti-light-blue = #bcdef3
+$moti-blue = #168dd9
+$moti-dark-blue = #006AA4       // Primary blue
+
+$land-fill = $moti-light-grey
+$land-stroke = $moti-silver
+$operational = $moti-dark-blue
+$future = $qz-purp-2
+$text = $qz-black
+
 /*
  * Thing styles
  */
- ul#legend
+body
+    background-image: url("../assets/backgroundTile.jpg");
+    background-repeat: repeat;
+
+
+ul#legend
    padding: 0
    margin: 0
    list-style-type: none
@@ -37,10 +61,10 @@ border-radius()
        float: left;
 
      &.construction b
-       background-color: alpha($qz-blue-1, 0.7)
+       background-color: alpha($future, 0.7)
 
      &.operational b
-       background-color: alpha($qz-purp-1, 0.7)
+       background-color: alpha($operational, 0.7)
 
 .item-body h2
   // font-size 1.2em
@@ -48,38 +72,38 @@ border-radius()
   // font-style bold
   margin 15px 0px 10px
 
-svg
-  background-color: $qz-map-water
+//svg
+//  background-color: $qz-map-water
 
 .borders path
-  stroke: $qz-map-land-stroke
+  stroke: $land-stroke
   stroke-width: 1px
-  fill: $qz-map-land-fill
+  fill: $land-fill
 
 .cables
   path
-    stroke: $qz-purp-1
+    stroke: $operational
     stroke-width: 2px
     stroke-opacity: 0.7
     fill: none
     opacity: 0.7
 
     &.future
-        stroke: $qz-blue-1
+        stroke: $future
 
 .landings
   circle
-    stroke: $qz-map-graticule
-    fill: $qz-purp-1
+    stroke: $land-stroke
+    fill: $operational
     stroke-width: 1px
     stroke-opacity: 0.7
     opacity: 0.7
 
     &.future
-        fill: $qz-blue-1
+        fill: $future
 
 text.year
-  fill: $qz-gray-2
+  fill: $text
   font-family: 'AdelleSans-Regular', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
   font-size: 500%
@@ -87,10 +111,10 @@ text.year
 
 .controls
   polygon
-    fill: $qz-gray-3
+    fill: $text
 
   text
-    fill: $qz-gray-3
+    fill: $text
     font-family: 'AdelleSans-Regular', Helvetica, Arial, sans-serif
     -webkit-font-smoothing: antialiased
     font-size: 300%
@@ -98,7 +122,7 @@ text.year
 rect.play
   fill: rgba(200,200,200,0.3)
   stroke-width: 2px
-  stroke: $qz-gray-2
+  stroke: $text
 
   &:hover
     cursor: pointer
