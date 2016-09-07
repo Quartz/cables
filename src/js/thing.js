@@ -14,7 +14,7 @@ var DEFAULT_WIDTH = 940;
 var MOBILE_THRESHOLD = 600;
 var PLAYBACK_SPEED = 400;
 var FIRST_YEAR = 1990;
-var LAST_YEAR = 2015;
+var LAST_YEAR = 2016;
 
 var bordersData = null;
 var cablesData = null;
@@ -81,7 +81,7 @@ function render() {
         }
     }
 
-    if (playbackYear == 2015) {
+    if (playbackYear == LAST_YEAR) {
         cables = cablesData['cables']['features'];
         landings = cablesData['landings']['features'];
     } else {
@@ -187,7 +187,7 @@ function renderMap(config) {
         })
         .attr('d', geoPath)
         .attr('class', function(d) {
-            if (d['properties']['rfs_year'] > 2015) {
+            if (d['properties']['rfs_year'] > LAST_YEAR) {
                 return 'future';
             }
         })
@@ -206,7 +206,7 @@ function renderMap(config) {
         return projection(d['geometry']['coordinates'])[1];
         })
         .attr('class', function(d) {
-            if (d['properties']['year'] > 2015) {
+            if (d['properties']['year'] > LAST_YEAR) {
                 return 'future';
             }
         })

@@ -5,7 +5,7 @@ from fastkml.kml import KML
 import geojson
 
 def main():
-    with open('fusion-cables-201603171133.kml') as f:
+    with open('fusion-cables-201608171039.kml') as f:
         kml = KML()
         kml.from_string(f.read())
 
@@ -45,7 +45,7 @@ def main():
 
         cable_features.append(cable)
 
-    with open('fusion-landing-points-201603171133.kml') as f:
+    with open('fusion-landing-points-201608171040.kml') as f:
         kml = KML()
         kml.from_string(f.read())
 
